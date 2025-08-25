@@ -1,0 +1,1 @@
+console.log("hello Wolrd from vanila.js");

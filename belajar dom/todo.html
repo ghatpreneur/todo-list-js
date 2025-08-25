@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <h1 class="judul">To Do List</h1>
+    <div class="form">
+    <input class="kegiatan" type="text" name="kegiatan" id="kegiatan" placeholder="Kegiatan...">
+    <input class="tombol" type="submit" name="kirim" value="Add List" id="tombol">
+    </div>
+    <div id="content">
+    <ul id="list"></ul>
+    </div>
+
+    <script>
+        const kegiatan = document.getElementById("kegiatan");
+        const tombol = document.getElementById("tombol");
+        const list = document.getElementById("list");
+
+        //menambahkan event listener pada tombol simpan
+        tombol.addEventListener("click", function() {
+            //menyimpan value inputan
+            const kegiatanv = kegiatan.value;
+            //validasi input
+            if(kegiatanv !== ""){
+                //membuat elemen li
+                const li = document.createElement("li");
+                //memberi value pada elemen li
+                li.textContent = kegiatanv;
+                list.appendChild(li);
+                kegiatan.value = "";
+            } else {
+                alert("Tidak Boleh Kosong!")
+            }
+        });
+        
+    </script>
+</body>
+</html>
+
+
+    <!-- <div class="todo-card">
+        <h2>Sarapan Pagi</h2>
+    </div>
+    <div class="todo-card">
+        <h2>Mandi Pagi</h2>
+    </div>
+    <div class="todo-card">
+        <h2>Belajar JavaScript</h2>
+    </div> -->

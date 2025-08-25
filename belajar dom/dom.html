@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dom</title>
+</head>
+<body>
+ 
+ <body>
+ <p class="teks">ini adalah teks pada html</p>
+
+ 
+</body>
+
+<script>
+ //const teks = document.getElementsByClassName("teks")
+
+// console.info(teks)
+</script>
+<p id="title">Dom</p>
+
+<ul id="menu">
+ <li id="item-1">Indomie</li>
+ <li id="item-2">Supermie</li>
+ <li id="item-3">Intermie</li>
+
+</ul>
+<script>
+//const title = document.getElementById("title");
+
+//title.textContent = "Belajar Dom";
+ //const menu = document.getElementById("menu");
+ //menu.removeChild(document.getElementById("item-2")); //remove element
+
+ //console.info(menu);
+ //console.info(menu.children);
+ 
+ //const item = document.getElementById("item-1");
+ //console.info(item);
+// console.info(menu.nextSibling);
+</script>
+ <script>
+  // object
+  //const orang = {nama : "Ghatfan", kelas : "XI RPL 2"}
+
+
+ // orang["Nama"] = "Zydan"
+ // orang["kelas"] = "XI RPL 2"
+
+  //console.table(orang);
+ </script>
+
+ <script>
+  // Dom (Documnet Method)
+
+  //console.log(document.head);
+ </script>
+
+ <div id="content" class="content"></div>
+ <script>
+
+  // memanggil element
+  //const content = document.getElementById("content");
+  //const title = document.createElement("h1");
+  //title.textContent = "title ini dibuat menggunakan javascript";
+  //content.appendChild(title);
+ </script>
+
+<input id="clickme"  type="button" value="clickme">
+
+<script>
+ // event handler
+
+ const clickme = document.getElementById("clickme");
+ 
+ clickme.addEventListener("click", function(){
+  clickme.setAttribute("value", "You Already Clickme");
+ });
+
+</script>
+
+</body>
+
+</html>
