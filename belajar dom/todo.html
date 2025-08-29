@@ -9,7 +9,7 @@
 <body>
     <h1 class="judul">To Do List</h1>
     <div class="form">
-    <input class="kegiatan" type="text" name="kegiatan" id="kegiatan" placeholder="Kegiatan...">
+    <input class="kegiatan" type="text" name="kegiatan" id="kegiatan" placeholder="Add To Do...">
     <input class="tombol" type="submit" name="kirim" value="Add List" id="tombol">
     </div>
     <div id="content">
@@ -20,6 +20,7 @@
         const kegiatan = document.getElementById("kegiatan");
         const tombol = document.getElementById("tombol");
         const list = document.getElementById("list");
+        let itemEdit = null;
 
         //menambahkan event listener pada tombol simpan
         tombol.addEventListener("click", function() {
@@ -27,28 +28,55 @@
             const kegiatanv = kegiatan.value;
             //validasi input
             if(kegiatanv !== ""){
+                if (itemEdit) {
+                    const span = itemEdit.querySelector("span");
+                    span.textContent = kegiatanv;
+                    itemEdit = null
+                    tombol.style.color = "";
+                    tombol.style.backgroundColor = "";
+                    tombol.value = "Add List";
+                    } else {
                 //membuat elemen li
                 const li = document.createElement("li");
+                //teks item
+                const spanText = document.createElement("span");
                 //memberi value pada elemen li
-                li.textContent = kegiatanv;
+                spanText.textContent = kegiatanv;
+                li.appendChild(spanText);
+                //tambah button edit dan delete
+                const btnEdit = document.createElement("button");
+                btnEdit.textContent = "Edit";
+                btnEdit.classList.add("btnEdit");
+                //menambahkan event pada button edit
+                btnEdit.addEventListener("click", function () {
+                    kegiatan.value = spanText.textContent;
+                    tombol.value = "Update List";
+                    tombol.style.color = "black";
+                    tombol.style.backgroundColor = "yellow";
+                    itemEdit = li;
+                });
+                const btnDelete = document.createElement("button");
+                btnDelete.textContent = "Delete";
+                btnDelete.classList.add("btnDelete");
+                //menambahkan event pada button delete
+                btnDelete.addEventListener("click", function () {
+                    li.remove();
+                });
+                // reset jika sedang edit item yang dihapus
+                if (itemEdit == li){ 
+                    itemEdit = nul
+                }
+                li.appendChild(btnEdit);
+                li.appendChild(btnDelete);
+                //kirim ke UL
                 list.appendChild(li);
+            }
                 kegiatan.value = "";
             } else {
-                alert("Tidak Boleh Kosong!")
+                alert("Tidak Boleh Kosong!");
             }
         });
         
     </script>
 </body>
 </html>
-
-
-    <!-- <div class="todo-card">
-        <h2>Sarapan Pagi</h2>
-    </div>
-    <div class="todo-card">
-        <h2>Mandi Pagi</h2>
-    </div>
-    <div class="todo-card">
-        <h2>Belajar JavaScript</h2>
-    </div> -->
